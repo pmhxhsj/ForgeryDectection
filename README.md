@@ -35,7 +35,7 @@ OpenCV(4.2.0) : <https://opencv.org/releases/>
 3 4  순서로 진행되며 1 = DCT 후 LE변환 결과 / 2 = BAG검출 및 위조 영역 검출 / 3 = 위조 영역 표시 / 4 = 기존 이미지에
 투영이다.
 ```
-![11](https://user-images.githubusercontent.com/72312559/109035967-7c150f80-770c-11eb-826a-71a34a2efecd.png)</br></br>
-<img src="https://user-images.githubusercontent.com/72312559/109035967-7c150f80-770c-11eb-826a-71a34a2efecd.png" width="40%">
-![321](https://user-images.githubusercontent.com/72312559/109035970-7cada600-770c-11eb-9dd9-06014d78a9fc.png)
-<img src="https://user-images.githubusercontent.com/72312559/109035970-7cada600-770c-11eb-9dd9-06014d78a9fc.png" width="40%">
+
+<img src="https://user-images.githubusercontent.com/72312559/109035967-7c150f80-770c-11eb-826a-71a34a2efecd.png" width="80%">
+
+<img src="https://user-images.githubusercontent.com/72312559/109035970-7cada600-770c-11eb-9dd9-06014d78a9fc.png" width="80%">
