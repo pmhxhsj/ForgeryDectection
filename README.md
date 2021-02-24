@@ -27,3 +27,5 @@ L1_LE를 이용한 연구보다 모든 압축정도에 대해 높은 정확도�
 
 OpenCV(4.2.0) : <https://opencv.org/releases/>
 
+![11](https://user-images.githubusercontent.com/72312559/109035967-7c150f80-770c-11eb-826a-71a34a2efecd.png)
+![321](https://user-images.githubusercontent.com/72312559/109035970-7cada600-770c-11eb-9dd9-06014d78a9fc.png)
