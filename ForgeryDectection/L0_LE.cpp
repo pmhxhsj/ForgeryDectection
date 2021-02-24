@@ -6,12 +6,10 @@ using namespace cv;
 using namespace std;
 
 void L0_LE_class();
-void block_count();
 
 int main() {
 
 	L0_LE_class();
-	//block_count();
 }
 
 void L0_LE_class() {
@@ -25,8 +23,8 @@ void L0_LE_class() {
 	}
 
 
-	Mat srcDCT;   //º¹»çµÇ¾î ¼öÁ¤ÇÒ ÀÌ¹ÌÁö
-	src.convertTo(srcDCT, CV_32F); // dct´Â 32F or 64F ±íÀÌ
+	Mat srcDCT;   //Image to be copied and modified
+	src.convertTo(srcDCT, CV_32F); // change depth for dct
 
 
 	Mat L0_LE(src.size().height, src.size().width, CV_32F);
@@ -35,26 +33,26 @@ void L0_LE_class() {
 
 	float L0 = 0;
 
-	for (int i = 0; i < src.size().height - 8; i++) // 8´ÜÀ§·Î ÀÌµ¿ÇÏ´Â for¹®(cols)
+	for (int i = 0; i < src.size().height - 8; i++) //cols
 	{
-		for (int j = 0; j < src.size().width - 8; j++) // 8´ÜÀ§·Î ÀÌµ¿ÇÏ´Â for¹®(rows)
+		for (int j = 0; j < src.size().width - 8; j++) //(rows)
 		{
-			Mat Li_block = srcDCT(Rect(j, i, 8, 8));
-			dct(Li_block, bloc);
-			//cout << bloc << endl;
+			Mat Li_block = srcDCT(Rect(j, i, 8, 8)); //Split for LE calculation
+			dct(Li_block, bloc); // DCT progress
+			
 			for (int x = 0; x < 8; x++)
 			{
 				for (int y = 0; y < 8; y++)
 				{
 					if (round(bloc.at<float>(y, x)) != 0) {
 						L0++;
-					} // 8 X 8 ÀÌµ¿ÇÏ¸é¼­ 0ÀÌ ¾Æ´Ñ ¼ö°¡ ÀÖÀ¸¸é L0¿¡ 1¾¿ Ãß°¡
+					} 
 				}
 			}
 
-			L0_LE(Rect(j, i, 1, 1)).at<float>(0, 0) = L0 / 64; // L0_LE(Rect(j,i,1,1)¿¡ 8x8 L0°ª ÀÔ·Â
+			L0_LE(Rect(j, i, 1, 1)).at<float>(0, 0) = L0 / 64; // Enter 8x8 L0 value in L0_LE(Rect(j,i,1,1)
 
-			L0 = 0; // L0 °ª 0À¸·Î ÃÊ±âÈ­
+			L0 = 0; //Initialize L0 value to 0
 		}
 	}
 
@@ -66,48 +64,44 @@ void L0_LE_class() {
 		for (int j = 0; j < L0_LE.size().width - 8; j += 8) {
 			Mat LE_block = L0_LE(Rect(j, i, 8, 8));
 			//cout << LE_block << endl;
-			for (int x = 0; x < LE_block.size().height; x++) {   //ÃÖ¼Ú°ª ±¸ÇÏ´Â for¹®
+			for (int x = 0; x < LE_block.size().height; x++) {   //Find the minimum
 				for (int y = 0; y < LE_block.size().width; y++) {
-					minimum = min(LE_block.at<float>(y, x), minimum); // 8x8 ºí·Ï¿¡¼­ minimum°ª Ã£±â
+					minimum = min(LE_block.at<float>(y, x), minimum); // Finding the minimum value in an 8x8 block
 
 				}
 			}
-			//cout << minimum << endl;
-			for (int x = 0; x < LE_block.size().height; x++) {   //ÃÖ¼Ú°ª ±¸ÇÏ´Â for¹®
+			for (int x = 0; x < LE_block.size().height; x++) {   //ìµœì†Ÿê°’ êµ¬í•˜ëŠ” forë¬¸
 				for (int y = 0; y < LE_block.size().width; y++) {
 					if (LE_block.at<float>(y, x) == minimum) {
-						minimum_num++;   // 8x8ºÒ·Ï¿¡¼­ minimum°ªÀÇ °³¼ö Ã£±â
+						minimum_num++;   // Finding the number of minimum values in 8x8 blocks
 					}
-					// cout << minimum << endl;
+			
 				}
 			}
 
 			for (int a = 0; a < LE_block.size().height; a++) {
 				for (int b = 0; b < LE_block.size().width; b++) {
-					if (minimum_num == 1) {                // 8x8 ºí·Ï¿¡ minimum°ªÀÌ 1°³¸é
+					if (minimum_num == 1) {              
 						if (LE_block.at<float>(b, a) == minimum) {
-							local_minima(Rect(j, i, 8, 8)).at<float>(b, a) = minimum; // minimum°ª º¸Á¸
+							local_minima(Rect(j, i, 8, 8)).at<float>(b, a) = minimum; // If there is 1 minimum value in an 8x8 block, the minimum value is preserved.
 						}
-						else local_minima(Rect(j, i, 8, 8)).at<float>(b, a) = 255; // ³ª¸ÓÁö 100À¸·Î Ã¤¿ò
+						else local_minima(Rect(j, i, 8, 8)).at<float>(b, a) = 255; // Fill with remaining 255
 					}
-					else local_minima(Rect(j, i, 8, 8)).at<float>(b, a) = 255; // minimum°ªÀÌ ¿©·¯°³¸é ´Ù 100À¸·Î Ã¤¿ò
+					else local_minima(Rect(j, i, 8, 8)).at<float>(b, a) = 255; // If there are multiple minimum values, fill them all with 255
 				}
 			}
 
 
 
 
-			minimum = 1000;
-			minimum_num = 0;
+			minimum = 1000; // Initializing minimum values
+			minimum_num = 0; // Initializing minimum_num values
 		}
 	}
 
-	//int h = src.size().height;
-	//int w = src.size().width;
-
-	//Mat local_minima_3;
-	Mat local_minima_3 = imread("bigwhite.jpg", 0);
-	//resize(img1, local_minima_3, Size(w, h));
+	
+	Mat local_minima_3 = imread("bigwhite.jpg", 0); // bigwhite.jpg = 4460x3360 total pixel value of 255 images
+	
 
 
 	for (int i = 0; i < src.size().height - 16; i += 8) {
@@ -140,7 +134,7 @@ void L0_LE_class() {
 				}
 			}
 		}
-	}
+	}  // Draw a rectangle using the L0 value of the copy paste forged area
 
 	Mat local_minima_4 = local_minima_3.clone();
 
@@ -196,8 +190,6 @@ void L0_LE_class() {
 	}
 
 
-	//À±°û¼±
-	//¼±¸¸ ³²±â°í Á¡ ¾ø¾Ö±â(ÇÔ¼ö »ç¿ëÇÒ·Á°í)
 	Mat img = local_minima_4.clone();
 
 	for (int i = 0; i < src.size().height; i += 8) {
@@ -213,7 +205,7 @@ void L0_LE_class() {
 		}
 	}
 
-	//ÇÈ¼¿ °ª È®ÀÎ
+
 	/*for (int x = 0; x < src.size().height; x++) {
 	   for (int y = 0; y < src.size().width; y++) {
 		  if (img.at<uchar>(y, x) != 0 && img.at<uchar>(y, x) != 255)
@@ -221,7 +213,7 @@ void L0_LE_class() {
 	   }
 	}*/
 
-	// ±³¼ö´Ô ¸»¾¸´ë·Î ÄÚµåÂ¥±â
+
 	Mat ex = local_minima_4.clone();
 
 	for (int i = 0; i < src.size().height; i += 8) {
@@ -237,11 +229,11 @@ void L0_LE_class() {
 	for (int i = 0; i < src.size().height; i++) {
 		for (int j = 0; j < src.size().width; j++) {
 			if (ex.at<uchar>(j, i) == 0)
-				if ((ex.at<uchar>(j, i - 8) == 255 && ex.at<uchar>(j, i) == 0) ||   //ÇØ´ç ÇÈ¼¿ÀÌ °ËÁ¤»ö(¼±)ÀÌ°í ¿ŞÂÊÀ¸·Î 8°³ °£ ÇÈ¼¿ÀÌ ÇÏ¾á»ö(¹ÙÅÁ)ÀÌ°Å³ª 
-					(ex.at<uchar>(j - 8, i) == 255 && ex.at<uchar>(j, i) == 0) ||   //ÇØ´ç ÇÈ¼¿ÀÌ °ËÁ¤»ö(¼±)ÀÌ°í À§ÂÊÀ¸·Î 8°³ °£ ÇÈ¼¿ÀÌ ÇÏ¾á»ö(¹ÙÅÁ)ÀÌ°Å³ª 
-					(ex.at<uchar>(j, i + 8) == 255 && ex.at<uchar>(j, i) == 0) ||   //ÇØ´ç ÇÈ¼¿ÀÌ °ËÁ¤»ö(¼±)ÀÌ°í ¿À¸¥ÂÊÀ¸·Î 8°³ °£ ÇÈ¼¿ÀÌ ÇÏ¾á»ö(¹ÙÅÁ)ÀÌ°Å³ª
-					(ex.at<uchar>(j + 8, i) == 255 && ex.at<uchar>(j, i) == 0))   //ÇØ´ç ÇÈ¼¿ÀÌ °ËÁ¤»ö(¼±)ÀÌ°í ¾Æ·¡ÂÊÀ¸·Î 8°³ °£ ÇÈ¼¿ÀÌ ÇÏ¾á»ö(¹ÙÅÁ)ÀÌ¸é
-					src.at<uchar>(j, i) = 255;   //¿øº»ÀÌ¹ÌÁö¿¡ ÇÏ¾á»ö ÇÈ¼¿·Î Ç¥½ÃÇÑ´Ù.
+				if ((ex.at<uchar>(j, i - 8) == 255 && ex.at<uchar>(j, i) == 0) ||   
+					(ex.at<uchar>(j - 8, i) == 255 && ex.at<uchar>(j, i) == 0) ||  
+					(ex.at<uchar>(j, i + 8) == 255 && ex.at<uchar>(j, i) == 0) || 
+					(ex.at<uchar>(j + 8, i) == 255 && ex.at<uchar>(j, i) == 0))   
+					src.at<uchar>(j, i) = 255; 
 		}
 	}
 
@@ -251,9 +243,9 @@ void L0_LE_class() {
 	//int h = src.size().height;
 	//int w = src.size().width;
 
-	// °ü½É¿µ¿ª ¼³Á¤ (set ROI (X, Y, W, H)).
+	// ê´€ì‹¬ì˜ì—­ ì„¤ì • (set ROI (X, Y, W, H)).
 	Rect rect(0, 0, 1280, 760);
-	// °ü½É¿µ¿ª ÀÚ¸£±â (Crop ROI).
+	// ê´€ì‹¬ì˜ì—­ ìë¥´ê¸° (Crop ROI).
 	Mat img2 = img(rect);
 
 
@@ -270,7 +262,7 @@ void L0_LE_class() {
 	}
 
 
-	//ex.at<uchar>(5, 5) = 0;//°ËÁ¤»ö
+	
 
 
 	//cout << sum << endl;
@@ -294,37 +286,3 @@ void L0_LE_class() {
 	waitKey();
 };
 
-/*void block_count() {
-
-   Mat src = imread("im35_t_mask.bmp", 0);
-   for (int i = 0; i < src.size().height; i += 8) {
-	  for (int j = 0; j < src.size().width; j += 8) {
-		 rectangle(src, Point(j, i), Point(j + 8, i + 8), Scalar(22), 1);
-	  }
-   }
-
-   int sum = 0;
-   int block = 0;
-   for (int i = 0; i < src.size().height; i += 8) {
-	  for (int j = 0; j < src.size().width; j += 8) {
-		 for (int x = 0; x < 8; x++) {
-			for (int y = 0; y < 8; y++) {
-			   if (src(Rect(j, i, 8, 8)).at<uchar>(y, x) == 255) {
-				  sum = sum + 1;
-			   }
-
-			}
-
-		 }
-		 if (sum == 48) {
-			block++;
-		 }
-		 sum = 0;
-	  }
-
-   }
-   cout << block / 2 << endl;
-   imshow("src", src);
-   waitKey();
-
-};*/
