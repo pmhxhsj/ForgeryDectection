@@ -30,7 +30,10 @@ OpenCV(4.2.0) : <https://opencv.org/releases/>
 
 ### 위조 검출 과정 및 결과<br/>
 ***
-
+```
+1 2 
+3 4  순서로 
+```
 ![11](https://user-images.githubusercontent.com/72312559/109035967-7c150f80-770c-11eb-826a-71a34a2efecd.png)</br></br>
 
 ![321](https://user-images.githubusercontent.com/72312559/109035970-7cada600-770c-11eb-9dd9-06014d78a9fc.png)
