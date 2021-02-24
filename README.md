@@ -41,7 +41,7 @@ OpenCV(4.2.0) : <https://opencv.org/releases/>
 
 <img src="https://user-images.githubusercontent.com/72312559/109042353-740c9e00-7713-11eb-9175-4410ba2867d1.png" width="50%"></br>
 ***
-<img src="https://user-images.githubusercontent.com/72312559/109035967-7c150f80-770c-11eb-826a-71a34a2efecd.png" width="80%"></br></br></br>
+<img src="https://user-images.githubusercontent.com/72312559/109035967-7c150f80-770c-11eb-826a-71a34a2efecd.png" width="80%"></br></br></br></br></br>
 
 
 <img src="https://user-images.githubusercontent.com/72312559/109042351-72db7100-7713-11eb-8f72-bb16d6e1feef.png" width="50%"></br>
