@@ -24,6 +24,6 @@ L1_LE를 이용한 연구보다 모든 압축정도에 대해 높은 정확도�
 ```
 
 ### 사용되는 라이브러리<br/><br/>
-```
+
 OpenCV : <https://opencv.org/releases/>
-```
+
