@@ -36,5 +36,5 @@ OpenCV(4.2.0) : <https://opencv.org/releases/>
 투영이다.
 ```
 ![11](https://user-images.githubusercontent.com/72312559/109035967-7c150f80-770c-11eb-826a-71a34a2efecd.png)</br></br>
-
+<img src="https://user-images.githubusercontent.com/72312559/109035967-7c150f80-770c-11eb-826a-71a34a2efecd.png" width="40%">
 ![321](https://user-images.githubusercontent.com/72312559/109035970-7cada600-770c-11eb-9dd9-06014d78a9fc.png)
