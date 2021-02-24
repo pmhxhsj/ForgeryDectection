@@ -32,7 +32,8 @@ OpenCV(4.2.0) : <https://opencv.org/releases/>
 ***
 ```
 1 2 
-3 4  순서로 
+3 4  순서로 진행되며 1 = DCT 후 LE변환 결과 / 2 = BAG검출 및 위조 영역 검출 / 3 = 위조 영역 표시 / 4 = 기존 이미지에
+투영이다.
 ```
 ![11](https://user-images.githubusercontent.com/72312559/109035967-7c150f80-770c-11eb-826a-71a34a2efecd.png)</br></br>
 
