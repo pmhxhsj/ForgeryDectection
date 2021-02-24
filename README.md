@@ -1,9 +1,9 @@
 # ForgeryDectection
 
 ## Digital Image Forgery Detection Using L0_Norm Local Effects
- 
-### 프로젝트 계획<br/><br/>
 
+### 프로젝트 계획<br/><br/>
+***
 
 ```
 한국연구재단에서 지원한 디지털 영상 위변조 탐지를 위한 다차원 영상특징 매트릭 생성과 통계적 검증 모델 개발연구이다.
@@ -12,7 +12,7 @@ OpenCV 4.2 라이브러리와 visual studio C++ 를 이용해 개발되었다.
 
 
 ### 프로젝트 설명<br/><br/>
-
+***
 ```
 복사-붙여넣기 위조가된 비압축 이미지(jpg,png,bmp등)에 대해 L0_Norm을 이용해 위조된 부분의 영역을 검출하는 프로젝트이다.
 이미지를 넣고 DCT(이산 코사인 변환 8x8블록에서 진행되었음)을 진행해 픽셀값을 주파수 값으로 변환한다. 그 후 L0_Norm의
@@ -24,13 +24,13 @@ L1_LE를 이용한 연구보다 모든 압축정도에 대해 높은 정확도�
 ```
 
 ### 사용되는 라이브러리<br/><br/>
-
+***
 OpenCV(4.2.0) : <https://opencv.org/releases/>
 
 
+### 위조 검출 과정 및 결과<br/><br/>
 ***
-***
-***
+
 ![11](https://user-images.githubusercontent.com/72312559/109035967-7c150f80-770c-11eb-826a-71a34a2efecd.png)</br></br>
 
 ![321](https://user-images.githubusercontent.com/72312559/109035970-7cada600-770c-11eb-9dd9-06014d78a9fc.png)
