@@ -38,13 +38,6 @@ OpenCV(4.2.0) : <https://opencv.org/releases/>
 차례대로 DCT 후 LE변환 결과 / BAG검출 및 위조 영역 검출 / 위조 영역 가시화 / 원본에 투영이다.</br></br>
 <img src="https://user-images.githubusercontent.com/72312559/109035967-7c150f80-770c-11eb-826a-71a34a2efecd.png" width="80%"></br></br></br></br></br>
 
-
-<img src="https://user-images.githubusercontent.com/72312559/109042351-72db7100-7713-11eb-8f72-bb16d6e1feef.png" width="50%"></br>
-<원본 이미지></br>
-***
-차례대로 DCT 후 LE변환 결과 / BAG검출 및 위조 영역 검출 / 위조 영역 가시화 / 원본에 투영이다.</br></br>
-<img src="https://user-images.githubusercontent.com/72312559/109035970-7cada600-770c-11eb-9dd9-06014d78a9fc.png" width="80%"></br>
-
 ***
 
 <img src="https://user-images.githubusercontent.com/72312559/110931974-385a1100-836e-11eb-9279-0ca889abcca7.png" width="80%"></br>
