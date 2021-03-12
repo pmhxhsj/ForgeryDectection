@@ -41,6 +41,29 @@ OpenCV(4.2.0) : <https://opencv.org/releases/>
 ***
 
 <img src="https://user-images.githubusercontent.com/72312559/110931974-385a1100-836e-11eb-9279-0ca889abcca7.png" width="80%"></br>
+***
 <img src="https://user-images.githubusercontent.com/72312559/110931979-3a23d480-836e-11eb-9a70-ab814e15d21c.png" width="80%"></br>
-<img src="https://user-images.githubusercontent.com/72312559/110931984-3abc6b00-836e-11eb-9a32-e1aa89fa13c1.png" width="40%"></br>
+***
+<img src="https://user-images.githubusercontent.com/72312559/110931984-3abc6b00-836e-11eb-9a32-e1aa89fa13c1.png" width="40%"></br></br>
 기존 연구들에 비해 L0_Norm 을 이용한 위조검출 결과가 좋은 것을 그림과 도표로 확인할 수 있다.
+
+***
+<img src="https://user-images.githubusercontent.com/72312559/110931990-3bed9800-836e-11eb-96db-1defa3b46cae.png" width="80%"></br>
+<img src="https://user-images.githubusercontent.com/72312559/110931995-3d1ec500-836e-11eb-8c4e-7443235715dd.png" width="40%"></br></br>
+
+기존 L2,L1_Norm을 이용한 위조검출에서 LE를 구할때 윈도우의 크기에 따라 성능이 정해지는 것이 아니라 이미지에 따라 성능이 정해졌다. 그러나 L0_Norm은
+윈도우 크기가 64에 가까워질수록 꾸준히 좋은 성능을 안정적으로 얻어내는 것을 확인할 수 있었다. 
+
+***
+
+
+### 결론 <br/>
+
+위변조 검출에  L_0 Norm 기반 접근방식을 사용하는 것이 모든 테스트 이미지에 대해 L_1 Norm 및 L_2 Norm 기반 접근방식 모두를 능가한다</br>
+
+L_1 Norm은 특이치에 조금 민감하며 L_2 Norm의 경우 성능이 이미지의 복잡도에 크게 의존하므로 모든 영상에 대해 하나의 Window 크기를 정확하게 지정해 줄 수 없었으나 L_0 Norm은  Window 계수를 더 많이 사용할수록 성능이 연속적으로 증가하는 특성을 가진다.</br>
+
+ 고안한 알고리즘은 JPEG, BMP, PNG등 비압축 이미지에서 사용이 가능하다.</br>
+
+
+
