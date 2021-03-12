@@ -32,26 +32,22 @@ OpenCV(4.2.0) : <https://opencv.org/releases/>
 ### 위조 검출 과정 및 결과<br/>
 ***
 
-1 2 
-3 4  
-순서로 진행되며 1 = DCT 후 LE변환 결과 / 2 = BAG검출 및 위조 영역 검출 / 3 = 위조 영역 표시 / 4 = 기존 이미지에
-투영이다.
-
-
-
 <img src="https://user-images.githubusercontent.com/72312559/109042353-740c9e00-7713-11eb-9175-4410ba2867d1.png" width="50%"></br>
 <원본 이미지></br>
 ***
-차례대로 DCT 후 LE변환 결과 / BAG검출 및 위조 영역 검출 / 위조 영역 가시화 / 원본에 투영이다.</br>
+차례대로 DCT 후 LE변환 결과 / BAG검출 및 위조 영역 검출 / 위조 영역 가시화 / 원본에 투영이다.</br></br>
 <img src="https://user-images.githubusercontent.com/72312559/109035967-7c150f80-770c-11eb-826a-71a34a2efecd.png" width="80%"></br></br></br></br></br>
 
 
 <img src="https://user-images.githubusercontent.com/72312559/109042351-72db7100-7713-11eb-8f72-bb16d6e1feef.png" width="50%"></br>
 <원본 이미지></br>
 ***
-차례대로 DCT 후 LE변환 결과 / BAG검출 및 위조 영역 검출 / 위조 영역 가시화 / 원본에 투영이다.</br>
+차례대로 DCT 후 LE변환 결과 / BAG검출 및 위조 영역 검출 / 위조 영역 가시화 / 원본에 투영이다.</br></br>
 <img src="https://user-images.githubusercontent.com/72312559/109035970-7cada600-770c-11eb-9dd9-06014d78a9fc.png" width="80%"></br>
 
 ***
 
-
+<img src="https://user-images.githubusercontent.com/72312559/110931974-385a1100-836e-11eb-9279-0ca889abcca7.png" width="80%"></br>
+<img src="https://user-images.githubusercontent.com/72312559/110931979-3a23d480-836e-11eb-9a70-ab814e15d21c.png" width="80%"></br>
+<img src="https://user-images.githubusercontent.com/72312559/110931984-3abc6b00-836e-11eb-9a32-e1aa89fa13c1.png" width="80%"></br>
+기존 연구들에 비해 L0_Norm 을 이용한 위조검출 결과가 좋은 것을 그림과 도표로 확인할 수 있다.
