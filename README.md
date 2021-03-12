@@ -42,5 +42,5 @@ OpenCV(4.2.0) : <https://opencv.org/releases/>
 
 <img src="https://user-images.githubusercontent.com/72312559/110931974-385a1100-836e-11eb-9279-0ca889abcca7.png" width="80%"></br>
 <img src="https://user-images.githubusercontent.com/72312559/110931979-3a23d480-836e-11eb-9a70-ab814e15d21c.png" width="80%"></br>
-<img src="https://user-images.githubusercontent.com/72312559/110931984-3abc6b00-836e-11eb-9a32-e1aa89fa13c1.png" width="80%"></br>
+<img src="https://user-images.githubusercontent.com/72312559/110931984-3abc6b00-836e-11eb-9a32-e1aa89fa13c1.png" width="40%"></br>
 기존 연구들에 비해 L0_Norm 을 이용한 위조검출 결과가 좋은 것을 그림과 도표로 확인할 수 있다.
